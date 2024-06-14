@@ -1,28 +1,41 @@
-/*public class Ticket {
+class Ticket extends Pasajeros {
     int numero;
     double precio;
     String ruta;
-    String servicio;
-    String pasajero;
+    double servicio;
 
-    public Ticket(int numero, double precio, String ruta, String servicio, String pasajero) {
+    public double getServicio() {
+        return servicio;
+    }
+
+    public Ticket(String nombre, String apellido, int cedula, int telefono, int numero, double precio,
+                  String ruta, double servicio) {
+        super(nombre, apellido, cedula, telefono);
         this.numero = numero;
         this.precio = precio;
         this.ruta = ruta;
         this.servicio = servicio;
-        this.pasajero = pasajero;
     }
 
-    public double calcularCosto() {
-        return this.ruta.getPrecioBase() + this.servicio.getRecargo();
+    public double calcularCosto(){
+        double totalCosto = precio + servicio;
+        return totalCosto;
     }
-
     public void imprimirDatos() {
+        System.out.println("Informacion Ticket");
         System.out.println("Número de Ticket: " + numero);
-        System.out.println("Precio del Pasaje: $" + calcularCosto());
-        System.out.println("Ruta: " + ruta.getOrigen() + " - " + ruta.getDestino());
-        System.out.println("Servicio: " + servicio.getTipo());
-        System.out.println("Pasajero: " + pasajero.getNombre() + " " + pasajero.getApellido());
+        System.out.println("Precio del Pasaje:" + precio);
+        System.out.println("Ruta: " + ruta);
+        System.out.println("Total costo: " + calcularCosto());
+    }
+
+    @Override
+    public void mostrarInfo() {
+        super.mostrarInfo();
+        System.out.println("Informacion Ticket");
+        System.out.println("Número de Ticket: " + numero);
+        System.out.println("Precio del Pasaje:" + precio);
+        System.out.println("Ruta: " + ruta);
+        System.out.println("Total costo: " + calcularCosto());
     }
 }
-*/
